@@ -14,7 +14,17 @@ export const CLASS_NAMES: Record<string, string> = {
   foreigner: 'フォーリナー',
   pretender: 'プリテンダー',
   beast: 'ビースト',
+  beastEresh: 'ビースト',
+  unBeastOlgaMarie: 'ビースト',
 };
+
+// ビースト系のクラス名バリエーションを正規化
+export const BEAST_CLASSES = new Set(['beast', 'beastEresh', 'unBeastOlgaMarie']);
+
+export function normalizeClassName(className: string): string {
+  if (BEAST_CLASSES.has(className)) return 'beast';
+  return className;
+}
 
 export const CLASS_ORDER = [
   'saber',
@@ -68,6 +78,8 @@ export const CLASS_NAME_ALIASES: Record<string, string> = {
   'foreigner': 'foreigner',
   'pretender': 'pretender',
   'beast': 'beast',
+  'beasteresh': 'beast',
+  'unbeastolgamarie': 'beast',
 };
 
 export const RARITY_STARS = ['☆0', '☆1', '☆2', '☆3', '☆4', '☆5'] as const;

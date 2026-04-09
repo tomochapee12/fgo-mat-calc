@@ -1,5 +1,285 @@
 [
   {
+    "id": 50,
+    "name": "星光の砂",
+    "type": "skillLvUp",
+    "icon": "/items/50.png",
+    "background": "silver"
+  },
+  {
+    "id": 51,
+    "name": "新星のトーチ",
+    "type": "skillLvUp",
+    "icon": "/items/51.png",
+    "background": "gold"
+  },
+  {
+    "id": 52,
+    "name": "明星のトーチ",
+    "type": "skillLvUp",
+    "icon": "/items/52.png",
+    "background": "gold"
+  },
+  {
+    "id": 53,
+    "name": "極星のトーチ",
+    "type": "skillLvUp",
+    "icon": "/items/53.png",
+    "background": "gold"
+  },
+  {
+    "id": 55,
+    "name": "星冠の結晶〔セイバー〕",
+    "type": "skillLvUp",
+    "icon": "/items/55.png",
+    "background": "gold"
+  },
+  {
+    "id": 56,
+    "name": "星冠の結晶〔アーチャー〕",
+    "type": "skillLvUp",
+    "icon": "/items/56.png",
+    "background": "gold"
+  },
+  {
+    "id": 57,
+    "name": "星冠の結晶〔ランサー〕",
+    "type": "skillLvUp",
+    "icon": "/items/57.png",
+    "background": "gold"
+  },
+  {
+    "id": 58,
+    "name": "星冠の結晶〔ライダー〕",
+    "type": "skillLvUp",
+    "icon": "/items/58.png",
+    "background": "gold"
+  },
+  {
+    "id": 59,
+    "name": "星冠の結晶〔キャスター〕",
+    "type": "skillLvUp",
+    "icon": "/items/59.png",
+    "background": "gold"
+  },
+  {
+    "id": 60,
+    "name": "星冠の結晶〔アサシン〕",
+    "type": "skillLvUp",
+    "icon": "/items/60.png",
+    "background": "gold"
+  },
+  {
+    "id": 61,
+    "name": "星冠の結晶〔バーサーカー〕",
+    "type": "skillLvUp",
+    "icon": "/items/61.png",
+    "background": "gold"
+  },
+  {
+    "id": 62,
+    "name": "星冠の結晶〔エクストラⅠ〕",
+    "type": "skillLvUp",
+    "icon": "/items/62.png",
+    "background": "gold"
+  },
+  {
+    "id": 63,
+    "name": "星冠の結晶〔エクストラⅡ〕",
+    "type": "skillLvUp",
+    "icon": "/items/63.png",
+    "background": "gold"
+  },
+  {
+    "id": 70,
+    "name": "遡行の羅針盤",
+    "type": "skillLvUp",
+    "icon": "/items/70.png",
+    "background": "gold"
+  },
+  {
+    "id": 1000,
+    "name": "カルデアの夢火",
+    "type": "skillLvUp",
+    "icon": "/items/1000.png",
+    "background": "gold"
+  },
+  {
+    "id": 5000,
+    "name": "クイック・コード・オープナー",
+    "type": "skillLvUp",
+    "icon": "/items/5000.png",
+    "background": "gold"
+  },
+  {
+    "id": 5001,
+    "name": "アーツ・コード・オープナー",
+    "type": "skillLvUp",
+    "icon": "/items/5001.png",
+    "background": "gold"
+  },
+  {
+    "id": 5002,
+    "name": "バスター・コード・オープナー",
+    "type": "skillLvUp",
+    "icon": "/items/5002.png",
+    "background": "gold"
+  },
+  {
+    "id": 5003,
+    "name": "コード・リムーバー",
+    "type": "skillLvUp",
+    "icon": "/items/5003.png",
+    "background": "gold"
+  },
+  {
+    "id": 6001,
+    "name": "剣の輝石",
+    "type": "skillLvUp",
+    "icon": "/items/6001.png",
+    "background": "bronze"
+  },
+  {
+    "id": 6002,
+    "name": "弓の輝石",
+    "type": "skillLvUp",
+    "icon": "/items/6002.png",
+    "background": "bronze"
+  },
+  {
+    "id": 6003,
+    "name": "槍の輝石",
+    "type": "skillLvUp",
+    "icon": "/items/6003.png",
+    "background": "bronze"
+  },
+  {
+    "id": 6004,
+    "name": "騎の輝石",
+    "type": "skillLvUp",
+    "icon": "/items/6004.png",
+    "background": "bronze"
+  },
+  {
+    "id": 6005,
+    "name": "術の輝石",
+    "type": "skillLvUp",
+    "icon": "/items/6005.png",
+    "background": "bronze"
+  },
+  {
+    "id": 6006,
+    "name": "殺の輝石",
+    "type": "skillLvUp",
+    "icon": "/items/6006.png",
+    "background": "bronze"
+  },
+  {
+    "id": 6007,
+    "name": "狂の輝石",
+    "type": "skillLvUp",
+    "icon": "/items/6007.png",
+    "background": "bronze"
+  },
+  {
+    "id": 6101,
+    "name": "剣の魔石",
+    "type": "skillLvUp",
+    "icon": "/items/6101.png",
+    "background": "silver"
+  },
+  {
+    "id": 6102,
+    "name": "弓の魔石",
+    "type": "skillLvUp",
+    "icon": "/items/6102.png",
+    "background": "silver"
+  },
+  {
+    "id": 6103,
+    "name": "槍の魔石",
+    "type": "skillLvUp",
+    "icon": "/items/6103.png",
+    "background": "silver"
+  },
+  {
+    "id": 6104,
+    "name": "騎の魔石",
+    "type": "skillLvUp",
+    "icon": "/items/6104.png",
+    "background": "silver"
+  },
+  {
+    "id": 6105,
+    "name": "術の魔石",
+    "type": "skillLvUp",
+    "icon": "/items/6105.png",
+    "background": "silver"
+  },
+  {
+    "id": 6106,
+    "name": "殺の魔石",
+    "type": "skillLvUp",
+    "icon": "/items/6106.png",
+    "background": "silver"
+  },
+  {
+    "id": 6107,
+    "name": "狂の魔石",
+    "type": "skillLvUp",
+    "icon": "/items/6107.png",
+    "background": "silver"
+  },
+  {
+    "id": 6201,
+    "name": "剣の秘石",
+    "type": "skillLvUp",
+    "icon": "/items/6201.png",
+    "background": "gold"
+  },
+  {
+    "id": 6202,
+    "name": "弓の秘石",
+    "type": "skillLvUp",
+    "icon": "/items/6202.png",
+    "background": "gold"
+  },
+  {
+    "id": 6203,
+    "name": "槍の秘石",
+    "type": "skillLvUp",
+    "icon": "/items/6203.png",
+    "background": "gold"
+  },
+  {
+    "id": 6204,
+    "name": "騎の秘石",
+    "type": "skillLvUp",
+    "icon": "/items/6204.png",
+    "background": "gold"
+  },
+  {
+    "id": 6205,
+    "name": "術の秘石",
+    "type": "skillLvUp",
+    "icon": "/items/6205.png",
+    "background": "gold"
+  },
+  {
+    "id": 6206,
+    "name": "殺の秘石",
+    "type": "skillLvUp",
+    "icon": "/items/6206.png",
+    "background": "gold"
+  },
+  {
+    "id": 6207,
+    "name": "狂の秘石",
+    "type": "skillLvUp",
+    "icon": "/items/6207.png",
+    "background": "gold"
+  },
+  {
     "id": 6501,
     "name": "鳳凰の羽根",
     "type": "skillLvUp",
@@ -434,6 +714,13 @@
     "background": "gold"
   },
   {
+    "id": 6999,
+    "name": "伝承結晶",
+    "type": "skillLvUp",
+    "icon": "/items/6999.png",
+    "background": "gold"
+  },
+  {
     "id": 7001,
     "name": "セイバーピース",
     "type": "tdLvUp",
@@ -529,6 +816,20 @@
     "name": "バーサーカーモニュメント",
     "type": "tdLvUp",
     "icon": "/items/7107.png",
+    "background": "gold"
+  },
+  {
+    "id": 7998,
+    "name": "聖杯の雫",
+    "type": "tdLvUp",
+    "icon": "/items/7998.png",
+    "background": "gold"
+  },
+  {
+    "id": 7999,
+    "name": "聖杯",
+    "type": "tdLvUp",
+    "icon": "/items/7999.png",
     "background": "gold"
   },
   {

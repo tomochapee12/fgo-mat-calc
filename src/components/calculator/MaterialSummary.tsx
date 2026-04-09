@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { useUserStateContext } from '@/contexts/UserStateContext';
 import { servants, itemMap } from '@/data/loader';
 import { calculateNeededMaterials, calculateDeficit } from '@/utils/calculator';
+import { compareByRarity } from '@/utils/item-sort';
 import { ItemIcon } from '@/components/common/ItemIcon';
 
 export function MaterialSummary() {
@@ -39,7 +40,7 @@ export function MaterialSummary() {
       item: itemMap.get(itemId),
     }))
     .filter((e) => e.item)
-    .sort((a, b) => b.deficit - a.deficit);
+    .sort((a, b) => compareByRarity(a.item!, b.item!));
 
   return (
     <div className="p-4 space-y-4">

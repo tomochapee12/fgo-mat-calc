@@ -1,4 +1,4 @@
-import type { ServantFilters } from '@/hooks/useFilteredServants';
+import type { ServantFilters, SortKey } from '@/hooks/useFilteredServants';
 import { CLASS_ORDER, CLASS_NAMES } from '@/utils/constants';
 
 interface ServantFilterProps {
@@ -45,20 +45,31 @@ export function ServantFilter({ filters, onChange }: ServantFilterProps) {
           </button>
         ))}
       </div>
-      <div className="flex gap-1">
-        {[0, 1, 2, 3, 4, 5].map((r) => (
-          <button
-            key={r}
-            onClick={() => toggleRarity(r)}
-            className={`px-3 py-1 text-xs rounded transition-colors ${
-              filters.rarities.has(r)
-                ? 'bg-yellow-500 text-gray-900'
-                : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
-            }`}
-          >
-            {'★'.repeat(r) || '☆0'}
-          </button>
-        ))}
+      <div className="flex items-center gap-2">
+        <div className="flex gap-1 flex-1">
+          {[0, 1, 2, 3, 4, 5].map((r) => (
+            <button
+              key={r}
+              onClick={() => toggleRarity(r)}
+              className={`px-3 py-1 text-xs rounded transition-colors ${
+                filters.rarities.has(r)
+                  ? 'bg-yellow-500 text-gray-900'
+                  : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+              }`}
+            >
+              {'★'.repeat(r) || '☆0'}
+            </button>
+          ))}
+        </div>
+        <select
+          value={filters.sort}
+          onChange={(e) => onChange({ ...filters, sort: e.target.value as SortKey })}
+          className="bg-gray-700 text-gray-300 text-xs rounded px-2 py-1 border border-gray-600"
+        >
+          <option value="collectionNo">No.順</option>
+          <option value="rarity">レアリティ順</option>
+          <option value="class">クラス順</option>
+        </select>
       </div>
     </div>
   );

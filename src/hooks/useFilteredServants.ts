@@ -1,12 +1,15 @@
 import { useMemo, useState } from 'react';
 import type { Servant } from '@/types/servant';
 import { kanaIncludes, hiraganaToKatakana, katakanaToHiragana } from '@/utils/kana';
-import { CLASS_NAME_ALIASES } from '@/utils/constants';
+import { CLASS_NAME_ALIASES, CLASS_ORDER, normalizeClassName } from '@/utils/constants';
+
+export type SortKey = 'collectionNo' | 'rarity' | 'class';
 
 export interface ServantFilters {
   query: string;
   classes: Set<string>;
   rarities: Set<number>;
+  sort: SortKey;
 }
 
 /**
@@ -47,18 +50,21 @@ export function useFilteredServants(servants: Servant[]) {
     query: '',
     classes: new Set(),
     rarities: new Set(),
+    sort: 'collectionNo',
   });
 
   const filtered = useMemo(() => {
     const { classFilter, nameQuery } = extractClassFromQuery(filters.query);
 
-    return servants.filter((s) => {
+    const result = servants.filter((s) => {
       // 名前フィルタ（ひらがな↔カタカナ相互変換対応）
       if (nameQuery && !kanaIncludes(s.name, nameQuery)) return false;
 
       // クラスフィルタ: テキスト入力のクラス名 + ボタン選択の両方を適用
-      if (classFilter && s.className !== classFilter) return false;
-      if (filters.classes.size > 0 && !filters.classes.has(s.className))
+      // ビースト系クラスを正規化して比較
+      const normalized = normalizeClassName(s.className);
+      if (classFilter && normalized !== classFilter) return false;
+      if (filters.classes.size > 0 && !filters.classes.has(normalized))
         return false;
 
       // レアリティフィルタ
@@ -67,6 +73,25 @@ export function useFilteredServants(servants: Servant[]) {
 
       return true;
     });
+
+    // ソート
+    const classOrderMap = new Map<string, number>(CLASS_ORDER.map((c, i) => [c, i]));
+    const sorted = [...result];
+    switch (filters.sort) {
+      case 'rarity':
+        sorted.sort((a, b) => b.rarity - a.rarity || a.collectionNo - b.collectionNo);
+        break;
+      case 'class':
+        sorted.sort((a, b) => {
+          const ai = classOrderMap.get(normalizeClassName(a.className)) ?? 99;
+          const bi = classOrderMap.get(normalizeClassName(b.className)) ?? 99;
+          return ai - bi || a.collectionNo - b.collectionNo;
+        });
+        break;
+      default:
+        sorted.sort((a, b) => a.collectionNo - b.collectionNo);
+    }
+    return sorted;
   }, [servants, filters]);
 
   return { filtered, filters, setFilters };

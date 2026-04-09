@@ -6,11 +6,19 @@ import { downloadImages } from './download-images.js';
 const API_BASE = 'https://api.atlasacademy.io';
 const DATA_DIR = path.resolve(import.meta.dirname, '..', 'data');
 
-// Item types relevant to material calculation
+// uses field values in the API
 const MATERIAL_USES = new Set([
-  'skillLvUp',
+  'skill',
+  'appendSkill',
   'ascension',
   'costume',
+]);
+
+// type field values to include
+const MATERIAL_TYPES = new Set([
+  'skillLvUp',
+  'tdLvUp',
+  'svtCoin',
 ]);
 
 export async function fetchItems(): Promise<void> {
@@ -24,7 +32,7 @@ export async function fetchItems(): Promise<void> {
   const materials = allItems.filter(
     (item) =>
       item.uses?.some((u) => MATERIAL_USES.has(u)) ||
-      item.type === 'svtCoin'
+      MATERIAL_TYPES.has(item.type)
   );
 
   // Download item icons
@@ -49,6 +57,8 @@ export async function fetchItems(): Promise<void> {
 }
 
 // Run if executed directly
-if (import.meta.url === `file://${process.argv[1]?.replace(/\\/g, '/')}`) {
+const isMain = import.meta.filename === process.argv[1] ||
+  import.meta.url === `file:///${process.argv[1]?.replace(/\\/g, '/')}`;
+if (isMain) {
   fetchItems().catch(console.error);
 }
