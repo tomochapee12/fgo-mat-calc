@@ -2296,6 +2296,13 @@
     "background": "silver"
   },
   {
+    "id": 40560001,
+    "name": "サーヴァントコイン",
+    "type": "svtCoin",
+    "icon": "/items/405600.png",
+    "background": "silver"
+  },
+  {
     "id": 40570001,
     "name": "サーヴァントコイン",
     "type": "svtCoin",
@@ -2650,6 +2657,13 @@
     "name": "サーヴァントコイン",
     "type": "svtCoin",
     "icon": "/items/505500.png",
+    "background": "silver"
+  },
+  {
+    "id": 50560001,
+    "name": "サーヴァントコイン",
+    "type": "svtCoin",
+    "icon": "/items/505600.png",
     "background": "silver"
   },
   {
@@ -3791,6 +3805,13 @@
     "name": "花園のコサージュ",
     "type": "eventItem",
     "icon": "/items/94152805.png",
+    "background": "gold"
+  },
+  {
+    "id": 94155604,
+    "name": "カリオンの額帯",
+    "type": "eventItem",
+    "icon": "/items/94155604.png",
     "background": "gold"
   },
   {
