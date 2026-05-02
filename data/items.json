@@ -4074,6 +4074,13 @@
     "background": "silver"
   },
   {
+    "id": 110200001,
+    "name": "サーヴァントコイン",
+    "type": "svtCoin",
+    "icon": "/items/1102000.png",
+    "background": "silver"
+  },
+  {
     "id": 110210001,
     "name": "サーヴァントコイン",
     "type": "svtCoin",
