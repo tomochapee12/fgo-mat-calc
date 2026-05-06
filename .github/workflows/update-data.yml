@@ -45,4 +45,20 @@ jobs:
           git add data/ public/faces/ public/items/
           git commit -m "chore: update servant/item data"
           git pull --rebase origin main
+
+      - name: Build updated app
+        if: steps.changes.outputs.changed == 'true'
+        run: npm run build
+
+      - name: Push data and image changes
+        if: steps.changes.outputs.changed == 'true'
+        run: |
           git push origin HEAD:main
+
+      - name: Deploy updated app to Cloudflare Pages
+        if: steps.changes.outputs.changed == 'true'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=fgo-mat-calc
