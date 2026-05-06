@@ -46,7 +46,7 @@ export function ServantDetail({ servant, onBack }: ServantDetailProps) {
   );
 
   return (
-    <div className="p-4 space-y-6">
+    <div className="space-y-6 p-3 sm:p-4">
       <button
         onClick={onBack}
         className="text-sm text-gray-400 hover:text-white transition-colors"
@@ -54,7 +54,7 @@ export function ServantDetail({ servant, onBack }: ServantDetailProps) {
         ← サーヴァント一覧に戻る
       </button>
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-3 sm:gap-4">
         <img
           src={servant.face}
           alt={servant.name}
@@ -72,7 +72,7 @@ export function ServantDetail({ servant, onBack }: ServantDetailProps) {
       </div>
 
       {/* Level settings */}
-      <div className="bg-gray-800 rounded-lg p-4 space-y-3">
+      <div className="space-y-3 rounded-lg bg-gray-800 p-3 sm:p-4">
         <h3 className="text-sm font-medium text-white mb-3">育成設定</h3>
 
         <LevelSelector

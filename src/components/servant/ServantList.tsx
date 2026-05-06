@@ -17,7 +17,7 @@ export function ServantList({ servants, configuredIds, onSelect }: ServantListPr
   }
 
   return (
-    <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2 p-3">
+    <div className="grid grid-cols-3 gap-2 p-3 sm:grid-cols-5 md:grid-cols-7 lg:grid-cols-10">
       {servants.map((s) => (
         <ServantCard
           key={s.collectionNo}

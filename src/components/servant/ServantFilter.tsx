@@ -22,7 +22,7 @@ export function ServantFilter({ filters, onChange }: ServantFilterProps) {
   };
 
   return (
-    <div className="p-3 space-y-3 bg-gray-800 border-b border-gray-700">
+    <div className="space-y-3 border-b border-gray-700 bg-gray-800 p-3">
       <input
         type="text"
         placeholder="サーヴァント名で検索..."
@@ -45,8 +45,8 @@ export function ServantFilter({ filters, onChange }: ServantFilterProps) {
           </button>
         ))}
       </div>
-      <div className="flex items-center gap-2">
-        <div className="flex gap-1 flex-1">
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+        <div className="flex flex-1 flex-wrap gap-1">
           {[0, 1, 2, 3, 4, 5].map((r) => (
             <button
               key={r}
@@ -64,7 +64,7 @@ export function ServantFilter({ filters, onChange }: ServantFilterProps) {
         <select
           value={filters.sort}
           onChange={(e) => onChange({ ...filters, sort: e.target.value as SortKey })}
-          className="bg-gray-700 text-gray-300 text-xs rounded px-2 py-1 border border-gray-600"
+          className="w-full rounded border border-gray-600 bg-gray-700 px-2 py-2 text-xs text-gray-300 sm:w-auto sm:py-1"
         >
           <option value="collectionNo">No.順</option>
           <option value="rarity">レアリティ順</option>
