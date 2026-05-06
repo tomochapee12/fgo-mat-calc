@@ -43,7 +43,7 @@ export function MaterialSummary() {
     .sort((a, b) => compareByRarity(a.item!, b.item!));
 
   return (
-    <div className="p-4 space-y-4">
+    <div className="space-y-4 p-3 sm:p-4">
       <div className="bg-gray-800 rounded-lg p-4">
         <h3 className="text-sm font-medium text-white mb-2">概要</h3>
         <p className="text-sm text-gray-400">
@@ -60,7 +60,7 @@ export function MaterialSummary() {
           {materialEntries.map((entry) => (
             <div
               key={entry.itemId}
-              className="flex items-center gap-3 py-1 border-b border-gray-700 last:border-0"
+              className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-x-3 gap-y-1 border-b border-gray-700 py-2 last:border-0 sm:flex"
             >
               <ItemIcon
                 icon={entry.item!.icon}
@@ -70,14 +70,14 @@ export function MaterialSummary() {
               <span className="text-sm text-gray-200 flex-1">
                 {entry.item!.name}
               </span>
-              <span className="text-sm text-gray-400">
+              <span className="text-xs text-gray-400 sm:text-sm">
                 所持: {entry.owned}
               </span>
-              <span className="text-sm text-yellow-400">
+              <span className="text-xs text-yellow-400 sm:text-sm">
                 必要: {entry.needed}
               </span>
               {entry.deficit > 0 && (
-                <span className="text-sm text-red-400 font-medium">
+                <span className="col-start-2 text-xs font-medium text-red-400 sm:text-sm">
                   不足: {entry.deficit}
                 </span>
               )}

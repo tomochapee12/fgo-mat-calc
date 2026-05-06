@@ -5,6 +5,7 @@ import { loadUserState, saveUserState } from '@/utils/storage';
 type Action =
   | { type: 'SET_SERVANT_LEVELS'; collectionNo: number; levels: ServantLevels }
   | { type: 'RESET_SERVANT'; collectionNo: number }
+  | { type: 'RESET_ALL' }
   | { type: 'SET_INVENTORY_ITEM'; itemId: number; amount: number }
   | { type: 'IMPORT_STATE'; state: UserState };
 
@@ -23,6 +24,11 @@ function reducer(state: UserState, action: Action): UserState {
       void _;
       return { ...state, servants: rest };
     }
+    case 'RESET_ALL':
+      return {
+        ...state,
+        servants: {},
+      };
     case 'SET_INVENTORY_ITEM':
       return {
         ...state,

@@ -14,7 +14,7 @@ import { servantMap } from '@/data/loader';
 function AppContent() {
   const [tab, setTab] = useState<TabId>('servants');
   const [selectedServantNo, setSelectedServantNo] = useState<number | null>(null);
-  const { state } = useUserStateContext();
+  const { state, dispatch } = useUserStateContext();
   const { filtered, filters, setFilters } = useFilteredServants(servants);
 
   const configuredIds = useMemo(
@@ -26,8 +26,21 @@ function AppContent() {
     ? servantMap.get(selectedServantNo) ?? null
     : null;
 
+  const showServantList = () => {
+    setTab('servants');
+    setSelectedServantNo(null);
+  };
+
+  const resetAllSettings = () => {
+    if (!window.confirm('全サーヴァントの育成設定をリセットします。よろしいですか？')) {
+      return;
+    }
+    dispatch({ type: 'RESET_ALL' });
+    showServantList();
+  };
+
   return (
-    <Layout>
+    <Layout onHome={showServantList} onResetAll={resetAllSettings}>
       <Navigation tab={tab} onTabChange={(t) => { setTab(t); setSelectedServantNo(null); }} />
 
       {tab === 'servants' && !selectedServant && (
