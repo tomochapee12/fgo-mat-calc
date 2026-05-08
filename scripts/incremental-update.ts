@@ -14,52 +14,76 @@ function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-async function repairMissingFaceImages(
+function isLocalFacePath(face: string): boolean {
+  return face.startsWith('/faces/');
+}
+
+function isRemoteUrl(face: string): boolean {
+  try {
+    const url = new URL(face);
+    return url.protocol === 'http:' || url.protocol === 'https:';
+  } catch {
+    return false;
+  }
+}
+
+function localFaceExists(face: string): boolean {
+  return fs.existsSync(path.join(PUBLIC_DIR, face.slice(1)));
+}
+
+async function fetchCurrentFaceUrl(servant: TransformedServant): Promise<string> {
+  const niceRes = await fetch(
+    `${API_BASE}/nice/JP/servant/${servant.collectionNo}`
+  );
+  if (!niceRes.ok) {
+    console.warn(`  Warning: Failed (${niceRes.status}), skipping`);
+    return '';
+  }
+
+  const niceServant: NiceServant = await niceRes.json();
+  return transformServant(niceServant).face;
+}
+
+async function repairFaceImages(
   servants: TransformedServant[]
 ): Promise<number> {
-  const missing = servants.filter((servant) => {
-    if (!servant.face.startsWith('/faces/')) return false;
-    return !fs.existsSync(path.join(PUBLIC_DIR, servant.face.slice(1)));
+  const targets = servants.filter((servant) => {
+    if (!servant.face) return false;
+    if (isLocalFacePath(servant.face)) return !localFaceExists(servant.face);
+    return isRemoteUrl(servant.face);
   });
 
-  if (missing.length === 0) return 0;
+  if (targets.length === 0) return 0;
 
-  console.log(`Repairing ${missing.length} missing servant face image(s)...`);
+  console.log(`Repairing ${targets.length} servant face image(s)...`);
 
   let repaired = 0;
-  for (let i = 0; i < missing.length; i++) {
-    const servant = missing[i];
+  for (let i = 0; i < targets.length; i++) {
+    const servant = targets[i];
     console.log(
-      `[${i + 1}/${missing.length}] Repairing ${servant.name} (No.${servant.collectionNo})...`
+      `[${i + 1}/${targets.length}] Repairing ${servant.name} (No.${servant.collectionNo})...`
     );
 
-    const niceRes = await fetch(
-      `${API_BASE}/nice/JP/servant/${servant.collectionNo}`
-    );
-    if (!niceRes.ok) {
-      console.warn(`  Warning: Failed (${niceRes.status}), skipping`);
-      continue;
-    }
-
-    const niceServant: NiceServant = await niceRes.json();
-    const transformed = transformServant(niceServant);
-    if (!transformed.face) {
+    const faceUrl = isRemoteUrl(servant.face)
+      ? servant.face
+      : await fetchCurrentFaceUrl(servant);
+    if (!faceUrl) {
       console.warn('  Warning: No face image found, skipping');
       continue;
     }
 
     const faceMap = await downloadImages(
-      [transformed.face],
+      [faceUrl],
       'faces',
       `Face repair: ${servant.name}`
     );
-    const localFace = faceMap.get(transformed.face);
-    if (localFace) {
+    const localFace = faceMap.get(faceUrl);
+    if (localFace && isLocalFacePath(localFace)) {
       servant.face = localFace;
       repaired += 1;
     }
 
-    if (i < missing.length - 1) {
+    if (i < targets.length - 1) {
       await sleep(DELAY_MS);
     }
   }
@@ -100,7 +124,7 @@ async function main(): Promise<void> {
   const existingServants: TransformedServant[] = JSON.parse(
     fs.readFileSync(servantsPath, 'utf-8')
   );
-  const repairedFaces = await repairMissingFaceImages(existingServants);
+  const repairedFaces = await repairFaceImages(existingServants);
 
   if (newServants.length === 0) {
     console.log('No new servants found. Updating items only...');
