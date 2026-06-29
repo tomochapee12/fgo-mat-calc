@@ -4,10 +4,18 @@ import { ServantCard } from './ServantCard';
 interface ServantListProps {
   servants: Servant[];
   configuredIds: Set<number>;
+  ownedIds: Set<number>;
+  priorities: Map<number, number>;
   onSelect: (collectionNo: number) => void;
 }
 
-export function ServantList({ servants, configuredIds, onSelect }: ServantListProps) {
+export function ServantList({
+  servants,
+  configuredIds,
+  ownedIds,
+  priorities,
+  onSelect,
+}: ServantListProps) {
   if (servants.length === 0) {
     return (
       <div className="p-8 text-center text-gray-500">
@@ -23,6 +31,8 @@ export function ServantList({ servants, configuredIds, onSelect }: ServantListPr
           key={s.collectionNo}
           servant={s}
           isConfigured={configuredIds.has(s.collectionNo)}
+          isOwned={ownedIds.has(s.collectionNo)}
+          priority={priorities.get(s.collectionNo) ?? 0}
           onClick={() => onSelect(s.collectionNo)}
         />
       ))}

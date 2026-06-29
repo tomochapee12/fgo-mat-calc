@@ -1,3 +1,5 @@
+import { classBoardData, freeQuestData, manifest } from '@/data/loader';
+
 interface HeaderProps {
   onHome: () => void;
   onResetAll: () => void;
@@ -13,6 +15,9 @@ export function Header({ onHome, onResetAll }: HeaderProps) {
           className="min-w-0 flex-1 text-left text-lg font-bold leading-tight text-white transition-colors hover:text-yellow-300 sm:text-xl"
         >
           FGO素材シミュレーター
+          <span className="mt-0.5 block text-[10px] font-normal text-gray-400 sm:text-xs">
+            Atlas: {formatDate(manifest.lastUpdated)} / フリクエ: {formatDate(freeQuestData.generatedAt)} / クラススコア: {formatDate(classBoardData.generatedAt)}
+          </span>
         </button>
         <button
           type="button"
@@ -24,4 +29,14 @@ export function Header({ onHome, onResetAll }: HeaderProps) {
       </div>
     </header>
   );
+}
+
+function formatDate(value: string): string {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return '不明';
+  return date.toLocaleDateString('ja-JP', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  });
 }

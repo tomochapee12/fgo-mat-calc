@@ -1,8 +1,9 @@
 import { useCallback } from 'react';
 import type { Servant } from '@/types/servant';
-import type { ServantLevels } from '@/types/user-state';
-import { useUserStateContext } from '@/contexts/UserStateContext';
+import type { ServantLevels, ServantRosterState } from '@/types/user-state';
+import { useUserStateContext } from '@/hooks/useUserStateContext';
 import { CLASS_NAMES } from '@/utils/constants';
+import { getDefaultLevels } from '@/utils/servant-levels';
 import { LevelSelector } from '@/components/common/LevelSelector';
 import { AscensionTable } from './AscensionTable';
 import { SkillTable } from './SkillTable';
@@ -13,26 +14,20 @@ interface ServantDetailProps {
   onBack: () => void;
 }
 
-function getDefaultLevels(): ServantLevels {
+function getDefaultRoster(): ServantRosterState {
   return {
-    ascension: { current: 0, target: 0 },
-    skills: [
-      { current: 1, target: 1 },
-      { current: 1, target: 1 },
-      { current: 1, target: 1 },
-    ],
-    appendSkills: [
-      { current: 0, target: 0 },
-      { current: 0, target: 0 },
-      { current: 0, target: 0 },
-    ],
-    costumes: {},
+    owned: false,
+    npLevel: 1,
+    bondLevel: 0,
+    coins: 0,
+    priority: 0,
   };
 }
 
 export function ServantDetail({ servant, onBack }: ServantDetailProps) {
   const { state, dispatch } = useUserStateContext();
   const levels = state.servants[servant.collectionNo] ?? getDefaultLevels();
+  const roster = state.roster[servant.collectionNo] ?? getDefaultRoster();
 
   const updateLevels = useCallback(
     (updated: ServantLevels) => {
@@ -40,6 +35,21 @@ export function ServantDetail({ servant, onBack }: ServantDetailProps) {
         type: 'SET_SERVANT_LEVELS',
         collectionNo: servant.collectionNo,
         levels: updated,
+      });
+      dispatch({
+        type: 'SET_ROSTER_ENTRY',
+        collectionNo: servant.collectionNo,
+        roster: { owned: true },
+      });
+    },
+    [dispatch, servant.collectionNo]
+  );
+  const updateRoster = useCallback(
+    (updated: Partial<ServantRosterState>) => {
+      dispatch({
+        type: 'SET_ROSTER_ENTRY',
+        collectionNo: servant.collectionNo,
+        roster: updated,
       });
     },
     [dispatch, servant.collectionNo]
@@ -68,6 +78,49 @@ export function ServantDetail({ servant, onBack }: ServantDetailProps) {
             {'★'.repeat(servant.rarity)}{' '}
             {CLASS_NAMES[servant.className] ?? servant.className}
           </p>
+        </div>
+      </div>
+
+      <div className="rounded-lg bg-gray-800 p-3 sm:p-4">
+        <h3 className="mb-3 text-sm font-medium text-white">所持・進捗メモ</h3>
+        <div className="grid grid-cols-2 gap-3 text-sm sm:grid-cols-5">
+          <label className="flex items-center gap-2 rounded border border-gray-700 bg-gray-900/40 px-3 py-2">
+            <input
+              type="checkbox"
+              checked={roster.owned}
+              onChange={(event) => updateRoster({ owned: event.target.checked })}
+              className="h-4 w-4 accent-yellow-400"
+            />
+            <span className="text-gray-200">所持</span>
+          </label>
+          <NumberField
+            label="宝具Lv"
+            min={1}
+            max={5}
+            value={roster.npLevel}
+            onChange={(npLevel) => updateRoster({ npLevel })}
+          />
+          <NumberField
+            label="絆Lv"
+            min={0}
+            max={15}
+            value={roster.bondLevel}
+            onChange={(bondLevel) => updateRoster({ bondLevel })}
+          />
+          <NumberField
+            label="コイン"
+            min={0}
+            max={9999}
+            value={roster.coins}
+            onChange={(coins) => updateRoster({ coins })}
+          />
+          <NumberField
+            label="優先度"
+            min={0}
+            max={5}
+            value={roster.priority}
+            onChange={(priority) => updateRoster({ priority })}
+          />
         </div>
       </div>
 
@@ -144,5 +197,35 @@ export function ServantDetail({ servant, onBack }: ServantDetailProps) {
 
       <CostumeTable costumes={servant.costumes} />
     </div>
+  );
+}
+
+interface NumberFieldProps {
+  label: string;
+  min: number;
+  max: number;
+  value: number;
+  onChange: (value: number) => void;
+}
+
+function NumberField({ label, min, max, value, onChange }: NumberFieldProps) {
+  return (
+    <label className="space-y-1">
+      <span className="text-xs text-gray-400">{label}</span>
+      <input
+        type="number"
+        min={min}
+        max={max}
+        value={value}
+        onChange={(event) => {
+          const next = Math.min(
+            max,
+            Math.max(min, Math.floor(Number(event.target.value) || min))
+          );
+          onChange(next);
+        }}
+        className="w-full rounded border border-gray-600 bg-gray-700 px-2 py-2 text-right text-sm text-white focus:border-yellow-400 focus:outline-none"
+      />
+    </label>
   );
 }

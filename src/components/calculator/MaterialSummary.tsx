@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
-import { useUserStateContext } from '@/contexts/UserStateContext';
-import { servants, itemMap } from '@/data/loader';
+import { useUserStateContext } from '@/hooks/useUserStateContext';
+import { classBoards, servants, itemMap } from '@/data/loader';
 import { calculateNeededMaterials, calculateDeficit } from '@/utils/calculator';
 import { compareByRarity } from '@/utils/item-sort';
 import { ItemIcon } from '@/components/common/ItemIcon';
@@ -9,7 +9,7 @@ export function MaterialSummary() {
   const { state } = useUserStateContext();
 
   const result = useMemo(
-    () => calculateNeededMaterials(servants, state),
+    () => calculateNeededMaterials(servants, state, classBoards),
     [state]
   );
 
@@ -19,13 +19,17 @@ export function MaterialSummary() {
   );
 
   const configuredCount = Object.keys(state.servants).length;
+  const classScoreTargetCount = Object.values(state.classScore).reduce(
+    (sum, board) => sum + board.targetSquareIds.length,
+    0
+  );
 
-  if (configuredCount === 0) {
+  if (configuredCount === 0 && classScoreTargetCount === 0) {
     return (
       <div className="p-8 text-center text-gray-500">
-        <p>サーヴァントの育成設定がありません</p>
+        <p>育成設定がありません</p>
         <p className="text-sm mt-2">
-          サーヴァントタブで育成計画を設定してください
+          サーヴァントまたはクラススコアの目標を設定してください
         </p>
       </div>
     );
@@ -48,6 +52,9 @@ export function MaterialSummary() {
         <h3 className="text-sm font-medium text-white mb-2">概要</h3>
         <p className="text-sm text-gray-400">
           設定サーヴァント数: {configuredCount}体
+        </p>
+        <p className="text-sm text-gray-400">
+          クラススコア目標: {classScoreTargetCount}ノード
         </p>
         <p className="text-sm text-yellow-400">
           必要QP: {result.qp.toLocaleString()}

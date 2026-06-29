@@ -4,10 +4,18 @@ import { CLASS_NAMES } from '@/utils/constants';
 interface ServantCardProps {
   servant: Servant;
   isConfigured: boolean;
+  isOwned: boolean;
+  priority: number;
   onClick: () => void;
 }
 
-export function ServantCard({ servant, isConfigured, onClick }: ServantCardProps) {
+export function ServantCard({
+  servant,
+  isConfigured,
+  isOwned,
+  priority,
+  onClick,
+}: ServantCardProps) {
   return (
     <button
       onClick={onClick}
@@ -31,6 +39,16 @@ export function ServantCard({ servant, isConfigured, onClick }: ServantCardProps
       </div>
       {isConfigured && (
         <div className="absolute top-1 right-1 w-2 h-2 rounded-full bg-yellow-400" />
+      )}
+      {isOwned && (
+        <div className="absolute left-1 top-1 rounded bg-emerald-500/20 px-1.5 py-0.5 text-[10px] font-medium text-emerald-200">
+          所持
+        </div>
+      )}
+      {priority > 0 && (
+        <div className="absolute bottom-1 right-1 rounded bg-yellow-500/20 px-1.5 py-0.5 text-[10px] font-medium text-yellow-200">
+          P{priority}
+        </div>
       )}
     </button>
   );

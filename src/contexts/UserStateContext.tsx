@@ -1,9 +1,6 @@
-import { createContext, useContext, type ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { useUserState } from '@/hooks/useUserState';
-
-type UserStateContextType = ReturnType<typeof useUserState>;
-
-const UserStateContext = createContext<UserStateContextType | null>(null);
+import { UserStateContext } from '@/contexts/user-state-context';
 
 export function UserStateProvider({ children }: { children: ReactNode }) {
   const value = useUserState();
@@ -12,10 +9,4 @@ export function UserStateProvider({ children }: { children: ReactNode }) {
       {children}
     </UserStateContext.Provider>
   );
-}
-
-export function useUserStateContext(): UserStateContextType {
-  const ctx = useContext(UserStateContext);
-  if (!ctx) throw new Error('useUserStateContext must be used within UserStateProvider');
-  return ctx;
 }

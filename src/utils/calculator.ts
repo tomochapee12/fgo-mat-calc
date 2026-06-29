@@ -1,5 +1,10 @@
 import type { Servant, LevelCost } from '@/types/servant';
 import type { UserState, ServantLevels } from '@/types/user-state';
+import type { ClassBoard } from '@/types/class-board';
+import {
+  calculateClassScoreNeedBreakdown,
+  calculateClassScoreNeeds,
+} from '@/utils/class-score';
 
 export interface MaterialNeed {
   itemId: number;
@@ -8,6 +13,13 @@ export interface MaterialNeed {
 
 export interface CalculationResult {
   materials: Map<number, number>; // itemId -> total needed
+  qp: number;
+}
+
+export interface ServantNeedBreakdown {
+  collectionNo: number;
+  servantName: string;
+  materials: Map<number, number>;
   qp: number;
 }
 
@@ -76,9 +88,17 @@ function calculateServantNeeds(
   return result;
 }
 
+export function calculateServantNeedsForPlan(
+  servant: Servant,
+  levels: ServantLevels
+): CalculationResult {
+  return calculateServantNeeds(servant, levels);
+}
+
 export function calculateNeededMaterials(
   servants: Servant[],
-  userState: UserState
+  userState: UserState,
+  classBoards: ClassBoard[] = []
 ): CalculationResult {
   const result: CalculationResult = { materials: new Map(), qp: 0 };
 
@@ -96,7 +116,48 @@ export function calculateNeededMaterials(
     result.qp += needs.qp;
   }
 
+  const classScoreNeeds = calculateClassScoreNeeds(classBoards, userState);
+  for (const [itemId, amount] of classScoreNeeds.materials) {
+    result.materials.set(itemId, (result.materials.get(itemId) ?? 0) + amount);
+  }
+  result.qp += classScoreNeeds.qp;
+
   return result;
+}
+
+export function calculateServantNeedBreakdown(
+  servants: Servant[],
+  userState: UserState,
+  classBoards: ClassBoard[] = []
+): ServantNeedBreakdown[] {
+  const servantMap = new Map(servants.map((s) => [s.collectionNo, s]));
+
+  const servantBreakdown = Object.entries(userState.servants)
+    .map(([collectionNoStr, levels]) => {
+      const collectionNo = Number(collectionNoStr);
+      const servant = servantMap.get(collectionNo);
+      if (!servant) return null;
+      const needs = calculateServantNeeds(servant, levels);
+      return {
+        collectionNo,
+        servantName: servant.name,
+        materials: needs.materials,
+        qp: needs.qp,
+      };
+    })
+    .filter((entry): entry is ServantNeedBreakdown => entry !== null);
+
+  const classScoreBreakdown = calculateClassScoreNeedBreakdown(
+    classBoards,
+    userState
+  ).map((entry) => ({
+    collectionNo: -entry.boardId,
+    servantName: `クラススコア: ${entry.boardName}`,
+    materials: entry.materials,
+    qp: entry.qp,
+  }));
+
+  return [...servantBreakdown, ...classScoreBreakdown];
 }
 
 export function calculateDeficit(

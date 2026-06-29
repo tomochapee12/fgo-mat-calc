@@ -9,7 +9,9 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "data:init": "tsx scripts/initial-fetch.ts",
-    "data:update": "tsx scripts/incremental-update.ts"
+    "data:update": "tsx scripts/incremental-update.ts",
+    "data:quests": "tsx scripts/fetch-free-quests.ts",
+    "data:class-boards": "tsx scripts/fetch-class-boards.ts"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.2",

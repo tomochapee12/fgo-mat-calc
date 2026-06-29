@@ -1,4 +1,4 @@
-export type TabId = 'servants' | 'calculator' | 'inventory';
+export type TabId = 'servants' | 'calculator' | 'inventory' | 'planning' | 'class-score';
 
 interface NavigationProps {
   tab: TabId;
@@ -9,6 +9,8 @@ const TABS: { id: TabId; label: string }[] = [
   { id: 'servants', label: 'サーヴァント' },
   { id: 'calculator', label: '素材計算' },
   { id: 'inventory', label: '所持素材' },
+  { id: 'planning', label: '行動計画' },
+  { id: 'class-score', label: 'クラススコア' },
 ];
 
 export function Navigation({ tab, onTabChange }: NavigationProps) {
