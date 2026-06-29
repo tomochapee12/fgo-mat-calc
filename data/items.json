@@ -714,6 +714,20 @@
     "background": "gold"
   },
   {
+    "id": 6564,
+    "name": "創生の真珠",
+    "type": "skillLvUp",
+    "icon": "/items/6564.png",
+    "background": "silver"
+  },
+  {
+    "id": 6565,
+    "name": "黎溟琥珀",
+    "type": "skillLvUp",
+    "icon": "/items/6565.png",
+    "background": "gold"
+  },
+  {
     "id": 6999,
     "name": "伝承結晶",
     "type": "skillLvUp",
@@ -1586,6 +1600,13 @@
     "name": "サーヴァントコイン",
     "type": "svtCoin",
     "icon": "/items/205400.png",
+    "background": "silver"
+  },
+  {
+    "id": 20550001,
+    "name": "サーヴァントコイン",
+    "type": "svtCoin",
+    "icon": "/items/205500.png",
     "background": "silver"
   },
   {
