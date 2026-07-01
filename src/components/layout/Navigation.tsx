@@ -1,4 +1,10 @@
-export type TabId = 'servants' | 'calculator' | 'inventory' | 'planning' | 'class-score';
+export type TabId =
+  | 'servants'
+  | 'calculator'
+  | 'inventory'
+  | 'planning'
+  | 'class-score'
+  | 'data-transfer';
 
 interface NavigationProps {
   tab: TabId;
@@ -11,16 +17,17 @@ const TABS: { id: TabId; label: string }[] = [
   { id: 'inventory', label: '所持素材' },
   { id: 'planning', label: '行動計画' },
   { id: 'class-score', label: 'クラススコア' },
+  { id: 'data-transfer', label: '入出力' },
 ];
 
 export function Navigation({ tab, onTabChange }: NavigationProps) {
   return (
-    <nav className="sticky top-[57px] z-30 flex border-b border-gray-700 bg-gray-800/95 backdrop-blur sm:top-[61px]">
+    <nav className="sticky top-[57px] z-30 flex overflow-x-auto border-b border-gray-700 bg-gray-800/95 backdrop-blur sm:top-[61px]">
       {TABS.map((t) => (
         <button
           key={t.id}
           onClick={() => onTabChange(t.id)}
-          className={`min-h-12 flex-1 px-2 py-3 text-xs font-medium transition-colors sm:px-4 sm:text-sm ${
+          className={`min-h-12 min-w-20 flex-none px-2 py-3 text-xs font-medium transition-colors sm:flex-1 sm:px-4 sm:text-sm ${
             tab === t.id
               ? 'text-yellow-400 border-b-2 border-yellow-400 bg-gray-700/50'
               : 'text-gray-400 hover:text-gray-200 hover:bg-gray-700/30'

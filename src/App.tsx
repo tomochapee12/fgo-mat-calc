@@ -12,6 +12,7 @@ import { MaterialSummary } from '@/components/calculator/MaterialSummary';
 import { ClassScoreDashboard } from '@/components/class-score/ClassScoreDashboard';
 import { InventoryEditor } from '@/components/inventory/InventoryEditor';
 import { PlanningDashboard } from '@/components/planning/PlanningDashboard';
+import { DataTransfer } from '@/components/data-transfer/DataTransfer';
 import { servantMap } from '@/data/loader';
 
 function AppContent() {
@@ -91,6 +92,8 @@ function AppContent() {
       {tab === 'planning' && <PlanningDashboard />}
 
       {tab === 'class-score' && <ClassScoreDashboard />}
+
+      {tab === 'data-transfer' && <DataTransfer />}
     </Layout>
   );
 }
