@@ -148883,5 +148883,605 @@
         ]
       }
     ]
+  },
+  {
+    "id": 106700,
+    "collectionNo": 472,
+    "name": "グレイ・リリィ",
+    "className": "saber",
+    "rarity": 4,
+    "face": "/faces/f_1067000.png",
+    "ascension": {
+      "0": {
+        "materials": [
+          {
+            "itemId": 94158005,
+            "amount": 1
+          }
+        ],
+        "qp": 50000
+      },
+      "1": {
+        "materials": [
+          {
+            "itemId": 94158005,
+            "amount": 1
+          }
+        ],
+        "qp": 150000
+      },
+      "2": {
+        "materials": [
+          {
+            "itemId": 94158005,
+            "amount": 1
+          }
+        ],
+        "qp": 500000
+      },
+      "3": {
+        "materials": [
+          {
+            "itemId": 94158005,
+            "amount": 1
+          }
+        ],
+        "qp": 1500000
+      }
+    },
+    "skills": {
+      "1": {
+        "materials": [
+          {
+            "itemId": 6001,
+            "amount": 4
+          }
+        ],
+        "qp": 100000
+      },
+      "2": {
+        "materials": [
+          {
+            "itemId": 6001,
+            "amount": 10
+          }
+        ],
+        "qp": 200000
+      },
+      "3": {
+        "materials": [
+          {
+            "itemId": 6101,
+            "amount": 4
+          }
+        ],
+        "qp": 600000
+      },
+      "4": {
+        "materials": [
+          {
+            "itemId": 6101,
+            "amount": 10
+          },
+          {
+            "itemId": 6512,
+            "amount": 10
+          }
+        ],
+        "qp": 800000
+      },
+      "5": {
+        "materials": [
+          {
+            "itemId": 6201,
+            "amount": 4
+          },
+          {
+            "itemId": 6512,
+            "amount": 20
+          }
+        ],
+        "qp": 2000000
+      },
+      "6": {
+        "materials": [
+          {
+            "itemId": 6201,
+            "amount": 10
+          },
+          {
+            "itemId": 6519,
+            "amount": 3
+          }
+        ],
+        "qp": 2500000
+      },
+      "7": {
+        "materials": [
+          {
+            "itemId": 6519,
+            "amount": 5
+          },
+          {
+            "itemId": 6505,
+            "amount": 10
+          }
+        ],
+        "qp": 5000000
+      },
+      "8": {
+        "materials": [
+          {
+            "itemId": 6505,
+            "amount": 30
+          },
+          {
+            "itemId": 6550,
+            "amount": 20
+          }
+        ],
+        "qp": 6000000
+      },
+      "9": {
+        "materials": [
+          {
+            "itemId": 6999,
+            "amount": 1
+          }
+        ],
+        "qp": 10000000
+      }
+    },
+    "appendSkills": {
+      "1": {
+        "materials": [
+          {
+            "itemId": 6001,
+            "amount": 4
+          }
+        ],
+        "qp": 100000
+      },
+      "2": {
+        "materials": [
+          {
+            "itemId": 6001,
+            "amount": 10
+          }
+        ],
+        "qp": 200000
+      },
+      "3": {
+        "materials": [
+          {
+            "itemId": 6101,
+            "amount": 4
+          }
+        ],
+        "qp": 600000
+      },
+      "4": {
+        "materials": [
+          {
+            "itemId": 6101,
+            "amount": 10
+          },
+          {
+            "itemId": 6508,
+            "amount": 4
+          }
+        ],
+        "qp": 800000
+      },
+      "5": {
+        "materials": [
+          {
+            "itemId": 6201,
+            "amount": 4
+          },
+          {
+            "itemId": 6508,
+            "amount": 8
+          }
+        ],
+        "qp": 2000000
+      },
+      "6": {
+        "materials": [
+          {
+            "itemId": 6201,
+            "amount": 10
+          },
+          {
+            "itemId": 6506,
+            "amount": 2
+          }
+        ],
+        "qp": 2500000
+      },
+      "7": {
+        "materials": [
+          {
+            "itemId": 6506,
+            "amount": 4
+          },
+          {
+            "itemId": 6563,
+            "amount": 2
+          }
+        ],
+        "qp": 5000000
+      },
+      "8": {
+        "materials": [
+          {
+            "itemId": 6563,
+            "amount": 6
+          },
+          {
+            "itemId": 6564,
+            "amount": 20
+          }
+        ],
+        "qp": 6000000
+      },
+      "9": {
+        "materials": [
+          {
+            "itemId": 6999,
+            "amount": 1
+          }
+        ],
+        "qp": 10000000
+      }
+    },
+    "costumes": {},
+    "appendUnlock": [
+      {
+        "num": 100,
+        "materials": [
+          {
+            "itemId": 10670001,
+            "amount": 120
+          }
+        ]
+      },
+      {
+        "num": 101,
+        "materials": [
+          {
+            "itemId": 10670001,
+            "amount": 120
+          }
+        ]
+      },
+      {
+        "num": 102,
+        "materials": [
+          {
+            "itemId": 10670001,
+            "amount": 120
+          }
+        ]
+      },
+      {
+        "num": 103,
+        "materials": [
+          {
+            "itemId": 10670001,
+            "amount": 120
+          }
+        ]
+      },
+      {
+        "num": 104,
+        "materials": [
+          {
+            "itemId": 10670001,
+            "amount": 120
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 306300,
+    "collectionNo": 473,
+    "name": "グレイ・リリィ",
+    "className": "lancer",
+    "rarity": 4,
+    "face": "/faces/f_3063000.png",
+    "ascension": {
+      "0": {
+        "materials": [
+          {
+            "itemId": 94158005,
+            "amount": 1
+          }
+        ],
+        "qp": 50000
+      },
+      "1": {
+        "materials": [
+          {
+            "itemId": 94158005,
+            "amount": 1
+          }
+        ],
+        "qp": 150000
+      },
+      "2": {
+        "materials": [
+          {
+            "itemId": 94158005,
+            "amount": 1
+          }
+        ],
+        "qp": 500000
+      },
+      "3": {
+        "materials": [
+          {
+            "itemId": 94158005,
+            "amount": 1
+          }
+        ],
+        "qp": 1500000
+      }
+    },
+    "skills": {
+      "1": {
+        "materials": [
+          {
+            "itemId": 6003,
+            "amount": 4
+          }
+        ],
+        "qp": 100000
+      },
+      "2": {
+        "materials": [
+          {
+            "itemId": 6003,
+            "amount": 10
+          }
+        ],
+        "qp": 200000
+      },
+      "3": {
+        "materials": [
+          {
+            "itemId": 6103,
+            "amount": 4
+          }
+        ],
+        "qp": 600000
+      },
+      "4": {
+        "materials": [
+          {
+            "itemId": 6103,
+            "amount": 10
+          },
+          {
+            "itemId": 6512,
+            "amount": 10
+          }
+        ],
+        "qp": 800000
+      },
+      "5": {
+        "materials": [
+          {
+            "itemId": 6203,
+            "amount": 4
+          },
+          {
+            "itemId": 6512,
+            "amount": 20
+          }
+        ],
+        "qp": 2000000
+      },
+      "6": {
+        "materials": [
+          {
+            "itemId": 6203,
+            "amount": 10
+          },
+          {
+            "itemId": 6519,
+            "amount": 3
+          }
+        ],
+        "qp": 2500000
+      },
+      "7": {
+        "materials": [
+          {
+            "itemId": 6519,
+            "amount": 5
+          },
+          {
+            "itemId": 6505,
+            "amount": 10
+          }
+        ],
+        "qp": 5000000
+      },
+      "8": {
+        "materials": [
+          {
+            "itemId": 6505,
+            "amount": 30
+          },
+          {
+            "itemId": 6550,
+            "amount": 20
+          }
+        ],
+        "qp": 6000000
+      },
+      "9": {
+        "materials": [
+          {
+            "itemId": 6999,
+            "amount": 1
+          }
+        ],
+        "qp": 10000000
+      }
+    },
+    "appendSkills": {
+      "1": {
+        "materials": [
+          {
+            "itemId": 6003,
+            "amount": 4
+          }
+        ],
+        "qp": 100000
+      },
+      "2": {
+        "materials": [
+          {
+            "itemId": 6003,
+            "amount": 10
+          }
+        ],
+        "qp": 200000
+      },
+      "3": {
+        "materials": [
+          {
+            "itemId": 6103,
+            "amount": 4
+          }
+        ],
+        "qp": 600000
+      },
+      "4": {
+        "materials": [
+          {
+            "itemId": 6103,
+            "amount": 10
+          },
+          {
+            "itemId": 6508,
+            "amount": 4
+          }
+        ],
+        "qp": 800000
+      },
+      "5": {
+        "materials": [
+          {
+            "itemId": 6203,
+            "amount": 4
+          },
+          {
+            "itemId": 6508,
+            "amount": 8
+          }
+        ],
+        "qp": 2000000
+      },
+      "6": {
+        "materials": [
+          {
+            "itemId": 6203,
+            "amount": 10
+          },
+          {
+            "itemId": 6506,
+            "amount": 2
+          }
+        ],
+        "qp": 2500000
+      },
+      "7": {
+        "materials": [
+          {
+            "itemId": 6506,
+            "amount": 4
+          },
+          {
+            "itemId": 6563,
+            "amount": 2
+          }
+        ],
+        "qp": 5000000
+      },
+      "8": {
+        "materials": [
+          {
+            "itemId": 6563,
+            "amount": 6
+          },
+          {
+            "itemId": 6564,
+            "amount": 20
+          }
+        ],
+        "qp": 6000000
+      },
+      "9": {
+        "materials": [
+          {
+            "itemId": 6999,
+            "amount": 1
+          }
+        ],
+        "qp": 10000000
+      }
+    },
+    "costumes": {},
+    "appendUnlock": [
+      {
+        "num": 100,
+        "materials": [
+          {
+            "itemId": 30630001,
+            "amount": 120
+          }
+        ]
+      },
+      {
+        "num": 101,
+        "materials": [
+          {
+            "itemId": 30630001,
+            "amount": 120
+          }
+        ]
+      },
+      {
+        "num": 102,
+        "materials": [
+          {
+            "itemId": 30630001,
+            "amount": 120
+          }
+        ]
+      },
+      {
+        "num": 103,
+        "materials": [
+          {
+            "itemId": 30630001,
+            "amount": 120
+          }
+        ]
+      },
+      {
+        "num": 104,
+        "materials": [
+          {
+            "itemId": 30630001,
+            "amount": 120
+          }
+        ]
+      }
+    ]
   }
 ]

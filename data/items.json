@@ -1253,6 +1253,13 @@
     "background": "silver"
   },
   {
+    "id": 10670001,
+    "name": "サーヴァントコイン",
+    "type": "svtCoin",
+    "icon": "/items/106700.png",
+    "background": "silver"
+  },
+  {
     "id": 20010001,
     "name": "サーヴァントコイン",
     "type": "svtCoin",
@@ -1985,6 +1992,13 @@
     "name": "サーヴァントコイン",
     "type": "svtCoin",
     "icon": "/items/306200.png",
+    "background": "silver"
+  },
+  {
+    "id": 30630001,
+    "name": "サーヴァントコイン",
+    "type": "svtCoin",
+    "icon": "/items/306300.png",
     "background": "silver"
   },
   {
@@ -3833,6 +3847,13 @@
     "name": "カリオンの額帯",
     "type": "eventItem",
     "icon": "/items/94155604.png",
+    "background": "gold"
+  },
+  {
+    "id": 94158005,
+    "name": "アッドリュック",
+    "type": "eventItem",
+    "icon": "/items/94158005.png",
     "background": "gold"
   },
   {
