@@ -48,7 +48,7 @@ jobs:
 
       - name: Build updated app
         if: steps.changes.outputs.changed == 'true'
-        run: npm run build
+        run: npm run check
 
       - name: Push data and image changes
         if: steps.changes.outputs.changed == 'true'
@@ -61,4 +61,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=fgo-mat-calc
+          command: pages deploy dist/client --project-name=fgo-mat-calc

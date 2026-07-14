@@ -15,11 +15,11 @@ jobs:
           cache: 'npm'
 
       - run: npm ci
-      - run: npm run build
+      - run: npm run check
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=fgo-mat-calc
+          command: pages deploy dist/client --project-name=fgo-mat-calc

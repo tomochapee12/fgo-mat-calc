@@ -21,7 +21,7 @@ export function SkillTable({ title, skills }: SkillTableProps) {
       {levels.map(([level, cost]) => (
         <div key={level} className="bg-gray-800 rounded p-3">
           <div className="text-xs text-gray-400 mb-2">
-            Lv.{Number(level) + 1} → Lv.{Number(level) + 2}
+            Lv.{Number(level)} → Lv.{Number(level) + 1}
           </div>
           <div className="space-y-1">
             {cost.materials.map((m) => (

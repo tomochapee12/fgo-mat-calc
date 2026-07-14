@@ -52,7 +52,7 @@ function calculateServantNeeds(
   for (let s = 0; s < 3; s++) {
     const skill = levels.skills[s];
     for (let i = skill.current - 1; i < skill.target - 1; i++) {
-      addLevelCost(result, servant.skills[i]);
+      addLevelCost(result, servant.skills[i + 1]);
     }
   }
 
@@ -74,7 +74,7 @@ function calculateServantNeeds(
     // Level up cost
     const startLevel = Math.max(append.current, 1);
     for (let i = startLevel - 1; i < append.target - 1; i++) {
-      addLevelCost(result, servant.appendSkills[i]);
+      addLevelCost(result, servant.appendSkills[i + 1]);
     }
   }
 

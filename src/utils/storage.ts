@@ -121,6 +121,7 @@ function normalizePlanningSettings(
 }
 
 export function loadUserState(): UserState {
+  if (typeof localStorage === 'undefined') return createDefaultState();
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return createDefaultState();
@@ -132,5 +133,6 @@ export function loadUserState(): UserState {
 }
 
 export function saveUserState(state: UserState): void {
+  if (typeof localStorage === 'undefined') return;
   localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
 }

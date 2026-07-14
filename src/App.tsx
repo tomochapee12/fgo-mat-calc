@@ -1,4 +1,5 @@
-import { useState, useMemo } from 'react';
+import { useEffect, useState, useMemo } from 'react';
+import { useSearchParams } from 'react-router';
 import { UserStateProvider } from '@/contexts/UserStateContext';
 import { useUserStateContext } from '@/hooks/useUserStateContext';
 import { servants } from '@/data/loader';
@@ -14,8 +15,11 @@ import { InventoryEditor } from '@/components/inventory/InventoryEditor';
 import { PlanningDashboard } from '@/components/planning/PlanningDashboard';
 import { DataTransfer } from '@/components/data-transfer/DataTransfer';
 import { servantMap } from '@/data/loader';
+import { SeoAbout } from '@/components/seo/SeoAbout';
+import { trackEvent } from '@/utils/analytics';
 
 function AppContent() {
+  const [searchParams] = useSearchParams();
   const [tab, setTab] = useState<TabId>('servants');
   const [selectedServantNo, setSelectedServantNo] = useState<number | null>(null);
   const { state, dispatch } = useUserStateContext();
@@ -48,9 +52,32 @@ function AppContent() {
     ? servantMap.get(selectedServantNo) ?? null
     : null;
 
+  useEffect(() => {
+    const requestedServant = Number(searchParams.get('servant'));
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (!cancelled && Number.isInteger(requestedServant) && servantMap.has(requestedServant)) {
+        setTab('servants');
+        setSelectedServantNo(requestedServant);
+      }
+    });
+    return () => { cancelled = true; };
+  }, [searchParams]);
+
   const showServantList = () => {
     setTab('servants');
     setSelectedServantNo(null);
+  };
+
+  const selectServant = (collectionNo: number) => {
+    setSelectedServantNo(collectionNo);
+    trackEvent('select_servant', { collection_no: collectionNo });
+  };
+
+  const changeTab = (nextTab: TabId) => {
+    setTab(nextTab);
+    setSelectedServantNo(null);
+    trackEvent('change_tab', { tab: nextTab });
   };
 
   const resetAllSettings = () => {
@@ -63,7 +90,7 @@ function AppContent() {
 
   return (
     <Layout onHome={showServantList} onResetAll={resetAllSettings}>
-      <Navigation tab={tab} onTabChange={(t) => { setTab(t); setSelectedServantNo(null); }} />
+      <Navigation tab={tab} onTabChange={changeTab} />
 
       {tab === 'servants' && !selectedServant && (
         <>
@@ -73,7 +100,7 @@ function AppContent() {
             configuredIds={configuredIds}
             ownedIds={ownedIds}
             priorities={priorities}
-            onSelect={setSelectedServantNo}
+            onSelect={selectServant}
           />
         </>
       )}
@@ -94,6 +121,8 @@ function AppContent() {
       {tab === 'class-score' && <ClassScoreDashboard />}
 
       {tab === 'data-transfer' && <DataTransfer />}
+
+      <SeoAbout />
     </Layout>
   );
 }

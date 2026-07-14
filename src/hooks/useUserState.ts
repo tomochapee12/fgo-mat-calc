@@ -1,4 +1,4 @@
-import { useReducer, useEffect } from 'react';
+import { useReducer, useEffect, useState } from 'react';
 import type {
   ClassScoreBoardState,
   PlanningSettings,
@@ -7,7 +7,7 @@ import type {
   UserState,
   ServantLevels,
 } from '@/types/user-state';
-import { loadUserState, migrateUserState, saveUserState } from '@/utils/storage';
+import { createDefaultState, loadUserState, migrateUserState, saveUserState } from '@/utils/storage';
 import { applyTargetPreset, getDefaultLevels } from '@/utils/servant-levels';
 
 type Action =
@@ -140,11 +140,22 @@ function mergeRosterEntry(
 }
 
 export function useUserState() {
-  const [state, dispatch] = useReducer(reducer, null, loadUserState);
+  const [state, dispatch] = useReducer(reducer, undefined, createDefaultState);
+  const [storageLoaded, setStorageLoaded] = useState(false);
 
   useEffect(() => {
-    saveUserState(state);
-  }, [state]);
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (cancelled) return;
+      dispatch({ type: 'IMPORT_STATE', state: loadUserState() });
+      setStorageLoaded(true);
+    });
+    return () => { cancelled = true; };
+  }, []);
+
+  useEffect(() => {
+    if (storageLoaded) saveUserState(state);
+  }, [state, storageLoaded]);
 
   return { state, dispatch } as const;
 }

@@ -2,6 +2,8 @@
 
 Fate/Grand Order の素材計算ツール。育成に必要な素材を一括計算し、所持数との差分を確認できる。
 
+公開サイト: [https://fgo-mat-calc.t12jp.org/](https://fgo-mat-calc.t12jp.org/)
+
 ## 機能
 
 - サーヴァント一覧（検索・クラス/レアリティフィルタ対応、ひらがな↔カタカナ変換検索）
@@ -15,6 +17,7 @@ Fate/Grand Order の素材計算ツール。育成に必要な素材を一括計
 - React 19 + TypeScript + Vite
 - Tailwind CSS v4
 - Cloudflare Pages（ホスティング）
+- React Router Framework Mode（静的プリレンダ・ルーティング）
 - GitHub Actions（データ更新 + デプロイ）
 
 ## データソース
@@ -36,7 +39,12 @@ npm run dev
 
 # ビルド
 npm run build
+
+# lint・テスト・全SEOページの検証をまとめて実行
+npm run check
 ```
+
+ビルド時にサーヴァント・素材・クラススコアの個別ページと `sitemap.xml` を自動生成し、全ページのcanonical、H1、description、OGP、JSON-LD、サイトマップ対応を検証します。Cloudflare Pages の出力ディレクトリは `dist/client` です。公開後の確認手順は [docs/seo-operations.md](docs/seo-operations.md) を参照してください。
 
 ## データ更新
 
