@@ -105,6 +105,13 @@
     "background": "gold"
   },
   {
+    "id": 1001,
+    "name": "カルデアの大夢火",
+    "type": "skillLvUp",
+    "icon": "/items/1001.png",
+    "background": "gold"
+  },
+  {
     "id": 5000,
     "name": "クイック・コード・オープナー",
     "type": "skillLvUp",
@@ -3042,6 +3049,13 @@
     "name": "サーヴァントコイン",
     "type": "svtCoin",
     "icon": "/items/605200.png",
+    "background": "silver"
+  },
+  {
+    "id": 60530001,
+    "name": "サーヴァントコイン",
+    "type": "svtCoin",
+    "icon": "/items/605300.png",
     "background": "silver"
   },
   {
