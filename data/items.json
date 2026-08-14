@@ -1624,6 +1624,13 @@
     "background": "silver"
   },
   {
+    "id": 20560001,
+    "name": "サーヴァントコイン",
+    "type": "svtCoin",
+    "icon": "/items/205600.png",
+    "background": "silver"
+  },
+  {
     "id": 30010001,
     "name": "サーヴァントコイン",
     "type": "svtCoin",
@@ -2356,6 +2363,13 @@
     "name": "サーヴァントコイン",
     "type": "svtCoin",
     "icon": "/items/405800.png",
+    "background": "silver"
+  },
+  {
+    "id": 40590001,
+    "name": "サーヴァントコイン",
+    "type": "svtCoin",
+    "icon": "/items/405900.png",
     "background": "silver"
   },
   {
@@ -4169,6 +4183,13 @@
     "name": "サーヴァントコイン",
     "type": "svtCoin",
     "icon": "/items/1102200.png",
+    "background": "silver"
+  },
+  {
+    "id": 110230001,
+    "name": "サーヴァントコイン",
+    "type": "svtCoin",
+    "icon": "/items/1102300.png",
     "background": "silver"
   },
   {
