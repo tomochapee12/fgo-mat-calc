@@ -3899,6 +3899,13 @@
     "background": "gold"
   },
   {
+    "id": 94159008,
+    "name": "肉球アームリング",
+    "type": "eventItem",
+    "icon": "/items/94159008.png",
+    "background": "gold"
+  },
+  {
     "id": 100010001,
     "name": "サーヴァントコイン",
     "type": "svtCoin",

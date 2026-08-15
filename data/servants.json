@@ -151699,5 +151699,265 @@
         ]
       }
     ]
+  },
+  {
+    "id": 2801300,
+    "collectionNo": 481,
+    "name": "ハベトロット",
+    "className": "pretender",
+    "rarity": 4,
+    "face": "/faces/f_28013000.png",
+    "ascension": {
+      "0": {
+        "materials": [
+          {
+            "itemId": 94159008,
+            "amount": 1
+          }
+        ],
+        "qp": 50000
+      },
+      "1": {
+        "materials": [
+          {
+            "itemId": 94159008,
+            "amount": 1
+          }
+        ],
+        "qp": 150000
+      },
+      "2": {
+        "materials": [
+          {
+            "itemId": 94159008,
+            "amount": 1
+          }
+        ],
+        "qp": 500000
+      },
+      "3": {
+        "materials": [
+          {
+            "itemId": 94159008,
+            "amount": 1
+          }
+        ],
+        "qp": 1500000
+      }
+    },
+    "skills": {
+      "1": {
+        "materials": [
+          {
+            "itemId": 6515,
+            "amount": 8
+          }
+        ],
+        "qp": 100000
+      },
+      "2": {
+        "materials": [
+          {
+            "itemId": 6502,
+            "amount": 8
+          }
+        ],
+        "qp": 200000
+      },
+      "3": {
+        "materials": [
+          {
+            "itemId": 6507,
+            "amount": 10
+          }
+        ],
+        "qp": 600000
+      },
+      "4": {
+        "materials": [
+          {
+            "itemId": 6528,
+            "amount": 10
+          }
+        ],
+        "qp": 800000
+      },
+      "5": {
+        "materials": [
+          {
+            "itemId": 6538,
+            "amount": 10
+          }
+        ],
+        "qp": 2000000
+      },
+      "6": {
+        "materials": [
+          {
+            "itemId": 6545,
+            "amount": 12
+          }
+        ],
+        "qp": 2500000
+      },
+      "7": {
+        "materials": [
+          {
+            "itemId": 6518,
+            "amount": 12
+          }
+        ],
+        "qp": 5000000
+      },
+      "8": {
+        "materials": [
+          {
+            "itemId": 6531,
+            "amount": 12
+          }
+        ],
+        "qp": 6000000
+      },
+      "9": {
+        "materials": [
+          {
+            "itemId": 6999,
+            "amount": 1
+          }
+        ],
+        "qp": 10000000
+      }
+    },
+    "appendSkills": {
+      "1": {
+        "materials": [
+          {
+            "itemId": 6514,
+            "amount": 8
+          }
+        ],
+        "qp": 100000
+      },
+      "2": {
+        "materials": [
+          {
+            "itemId": 6510,
+            "amount": 8
+          }
+        ],
+        "qp": 200000
+      },
+      "3": {
+        "materials": [
+          {
+            "itemId": 6513,
+            "amount": 10
+          }
+        ],
+        "qp": 600000
+      },
+      "4": {
+        "materials": [
+          {
+            "itemId": 6519,
+            "amount": 10
+          }
+        ],
+        "qp": 800000
+      },
+      "5": {
+        "materials": [
+          {
+            "itemId": 6547,
+            "amount": 10
+          }
+        ],
+        "qp": 2000000
+      },
+      "6": {
+        "materials": [
+          {
+            "itemId": 6550,
+            "amount": 12
+          }
+        ],
+        "qp": 2500000
+      },
+      "7": {
+        "materials": [
+          {
+            "itemId": 6542,
+            "amount": 12
+          }
+        ],
+        "qp": 5000000
+      },
+      "8": {
+        "materials": [
+          {
+            "itemId": 6562,
+            "amount": 12
+          }
+        ],
+        "qp": 6000000
+      },
+      "9": {
+        "materials": [
+          {
+            "itemId": 6999,
+            "amount": 1
+          }
+        ],
+        "qp": 10000000
+      }
+    },
+    "costumes": {},
+    "appendUnlock": [
+      {
+        "num": 100,
+        "materials": [
+          {
+            "itemId": 280130001,
+            "amount": 120
+          }
+        ]
+      },
+      {
+        "num": 101,
+        "materials": [
+          {
+            "itemId": 280130001,
+            "amount": 120
+          }
+        ]
+      },
+      {
+        "num": 102,
+        "materials": [
+          {
+            "itemId": 280130001,
+            "amount": 120
+          }
+        ]
+      },
+      {
+        "num": 103,
+        "materials": [
+          {
+            "itemId": 280130001,
+            "amount": 120
+          }
+        ]
+      },
+      {
+        "num": 104,
+        "materials": [
+          {
+            "itemId": 280130001,
+            "amount": 120
+          }
+        ]
+      }
+    ]
   }
 ]
