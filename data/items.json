@@ -2380,6 +2380,13 @@
     "background": "silver"
   },
   {
+    "id": 40610001,
+    "name": "サーヴァントコイン",
+    "type": "svtCoin",
+    "icon": "/items/406100.png",
+    "background": "silver"
+  },
+  {
     "id": 50010001,
     "name": "サーヴァントコイン",
     "type": "svtCoin",
@@ -3423,6 +3430,13 @@
     "background": "silver"
   },
   {
+    "id": 70550001,
+    "name": "サーヴァントコイン",
+    "type": "svtCoin",
+    "icon": "/items/705500.png",
+    "background": "silver"
+  },
+  {
     "id": 80010001,
     "name": "サーヴァントコイン",
     "type": "svtCoin",
@@ -3917,6 +3931,13 @@
     "name": "肉球アームリング",
     "type": "eventItem",
     "icon": "/items/94159008.png",
+    "background": "gold"
+  },
+  {
+    "id": 94164004,
+    "name": "ヒラグモちゃん",
+    "type": "eventItem",
+    "icon": "/items/94164004.png",
     "background": "gold"
   },
   {
@@ -4491,6 +4512,13 @@
     "name": "サーヴァントコイン",
     "type": "svtCoin",
     "icon": "/items/2801300.png",
+    "background": "silver"
+  },
+  {
+    "id": 280140001,
+    "name": "サーヴァントコイン",
+    "type": "svtCoin",
+    "icon": "/items/2801400.png",
     "background": "silver"
   },
   {
