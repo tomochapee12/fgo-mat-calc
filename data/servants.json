@@ -153495,5 +153495,303 @@
         ]
       }
     ]
+  },
+  {
+    "id": 2501700,
+    "collectionNo": 487,
+    "name": "ダイナマイト利休",
+    "className": "foreigner",
+    "rarity": 5,
+    "face": "/faces/f_25017000.png",
+    "ascension": {
+      "0": {
+        "materials": [
+          {
+            "itemId": 6522,
+            "amount": 10
+          },
+          {
+            "itemId": 6507,
+            "amount": 10
+          }
+        ],
+        "qp": 100000
+      },
+      "1": {
+        "materials": [
+          {
+            "itemId": 6538,
+            "amount": 10
+          },
+          {
+            "itemId": 6521,
+            "amount": 10
+          }
+        ],
+        "qp": 300000
+      },
+      "2": {
+        "materials": [
+          {
+            "itemId": 6544,
+            "amount": 10
+          },
+          {
+            "itemId": 6555,
+            "amount": 10
+          }
+        ],
+        "qp": 1000000
+      },
+      "3": {
+        "materials": [
+          {
+            "itemId": 6562,
+            "amount": 10
+          },
+          {
+            "itemId": 6565,
+            "amount": 10
+          }
+        ],
+        "qp": 3000000
+      }
+    },
+    "skills": {
+      "1": {
+        "materials": [
+          {
+            "itemId": 6522,
+            "amount": 10
+          }
+        ],
+        "qp": 200000
+      },
+      "2": {
+        "materials": [
+          {
+            "itemId": 6526,
+            "amount": 10
+          }
+        ],
+        "qp": 400000
+      },
+      "3": {
+        "materials": [
+          {
+            "itemId": 6529,
+            "amount": 12
+          }
+        ],
+        "qp": 1200000
+      },
+      "4": {
+        "materials": [
+          {
+            "itemId": 6538,
+            "amount": 12
+          }
+        ],
+        "qp": 1600000
+      },
+      "5": {
+        "materials": [
+          {
+            "itemId": 6544,
+            "amount": 12
+          }
+        ],
+        "qp": 4000000
+      },
+      "6": {
+        "materials": [
+          {
+            "itemId": 6548,
+            "amount": 15
+          }
+        ],
+        "qp": 5000000
+      },
+      "7": {
+        "materials": [
+          {
+            "itemId": 6562,
+            "amount": 15
+          }
+        ],
+        "qp": 10000000
+      },
+      "8": {
+        "materials": [
+          {
+            "itemId": 6564,
+            "amount": 15
+          }
+        ],
+        "qp": 12000000
+      },
+      "9": {
+        "materials": [
+          {
+            "itemId": 6999,
+            "amount": 1
+          }
+        ],
+        "qp": 20000000
+      }
+    },
+    "appendSkills": {
+      "1": {
+        "materials": [
+          {
+            "itemId": 6505,
+            "amount": 10
+          }
+        ],
+        "qp": 200000
+      },
+      "2": {
+        "materials": [
+          {
+            "itemId": 6507,
+            "amount": 10
+          }
+        ],
+        "qp": 400000
+      },
+      "3": {
+        "materials": [
+          {
+            "itemId": 6535,
+            "amount": 12
+          }
+        ],
+        "qp": 1200000
+      },
+      "4": {
+        "materials": [
+          {
+            "itemId": 6521,
+            "amount": 12
+          }
+        ],
+        "qp": 1600000
+      },
+      "5": {
+        "materials": [
+          {
+            "itemId": 6549,
+            "amount": 12
+          }
+        ],
+        "qp": 4000000
+      },
+      "6": {
+        "materials": [
+          {
+            "itemId": 6554,
+            "amount": 15
+          }
+        ],
+        "qp": 5000000
+      },
+      "7": {
+        "materials": [
+          {
+            "itemId": 6555,
+            "amount": 15
+          }
+        ],
+        "qp": 10000000
+      },
+      "8": {
+        "materials": [
+          {
+            "itemId": 6565,
+            "amount": 15
+          }
+        ],
+        "qp": 12000000
+      },
+      "9": {
+        "materials": [
+          {
+            "itemId": 6999,
+            "amount": 1
+          }
+        ],
+        "qp": 20000000
+      }
+    },
+    "costumes": {
+      "2501730": {
+        "materials": [
+          {
+            "itemId": 6505,
+            "amount": 10
+          },
+          {
+            "itemId": 6526,
+            "amount": 5
+          },
+          {
+            "itemId": 6521,
+            "amount": 5
+          },
+          {
+            "itemId": 6562,
+            "amount": 5
+          }
+        ],
+        "qp": 3000000
+      }
+    },
+    "appendUnlock": [
+      {
+        "num": 100,
+        "materials": [
+          {
+            "itemId": 250170001,
+            "amount": 120
+          }
+        ]
+      },
+      {
+        "num": 101,
+        "materials": [
+          {
+            "itemId": 250170001,
+            "amount": 120
+          }
+        ]
+      },
+      {
+        "num": 102,
+        "materials": [
+          {
+            "itemId": 250170001,
+            "amount": 120
+          }
+        ]
+      },
+      {
+        "num": 103,
+        "materials": [
+          {
+            "itemId": 250170001,
+            "amount": 120
+          }
+        ]
+      },
+      {
+        "num": 104,
+        "materials": [
+          {
+            "itemId": 250170001,
+            "amount": 120
+          }
+        ]
+      }
+    ]
   }
 ]
